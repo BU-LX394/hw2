@@ -6,14 +6,46 @@ in your submission.
 """
 import os
 import re
+import sys
+from pathlib import Path
 from typing import Optional, Union
 
+import biberplus.tagger.tagger
+import biberplus.tagger.tagger_utils
 import nltk
 from biberplus.tagger import tag_text
 from bs4 import BeautifulSoup
 from nltk.corpus import CorpusReader
 from nltk.probability import FreqDist
 
+""" Fix the biberplus bug for Windows users """
+
+warning_shown = False
+
+
+def build_variable_dictionaries() -> dict[str, set[str]]:
+    global warning_shown
+    if not warning_shown:
+        print("You are running Sophie's modified version of biberplus, which "
+              "which fixes compatibility issues with Windows.",
+              file=sys.stderr)
+        warning_shown = True
+
+    script_dir = Path(os.path.dirname(biberplus.tagger.tagger_utils.__file__))
+    constant_files = script_dir.glob("constants/*.txt")
+    variables_dict = {}
+
+    for constant_file in constant_files:
+        # E.g. constants/suasive_verbs.txt -> suasive_verbs
+        file_name = constant_file.stem
+        variables_dict[file_name] = \
+            biberplus.tagger.tagger_utils.read_in_variables(constant_file)
+
+    return variables_dict
+
+
+biberplus.tagger.tagger.build_variable_dictionaries = \
+    build_variable_dictionaries
 """ Problem 1: Python Exercises """
 
 
