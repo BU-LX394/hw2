@@ -46,6 +46,7 @@ def build_variable_dictionaries() -> dict[str, set[str]]:
 
 biberplus.tagger.tagger.build_variable_dictionaries = \
     build_variable_dictionaries
+
 """ Problem 1: Python Exercises """
 
 
