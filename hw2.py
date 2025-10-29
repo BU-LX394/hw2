@@ -12,6 +12,8 @@ from typing import Optional, Union
 
 import biberplus.tagger.tagger
 import biberplus.tagger.tagger_utils
+import biberplus.tagger.tag_frequencies
+import biberplus.tagger.function_words_tagger
 import nltk
 from biberplus.tagger import tag_text
 from bs4 import BeautifulSoup
@@ -44,7 +46,13 @@ def build_variable_dictionaries() -> dict[str, set[str]]:
     return variables_dict
 
 
+biberplus.tagger.tagger_utils.build_variable_dictionaries = \
+    build_variable_dictionaries
 biberplus.tagger.tagger.build_variable_dictionaries = \
+    build_variable_dictionaries
+biberplus.tagger.tag_frequencies.build_variable_dictionaries = \
+    build_variable_dictionaries
+biberplus.tagger.function_words_tagger.build_variable_dictionaries = \
     build_variable_dictionaries
 
 """ Problem 1: Python Exercises """
