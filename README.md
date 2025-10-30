@@ -5,7 +5,7 @@ For this assignment, please complete the _problem set_ found in `hw2-pset.ipynb`
 
 For the coding problems, you will implement functions defined in the Python file `hw2.py`, replacing the existing code (which raises a `NotImplementedError`) with your own code. **Please write all code within the relevant function definitions**; failure to do this may break the rest of your code.
 
-For the written problems, please submit your answers in PDF format, using the filename `hw21-written.pdf`. Make sure to clearly mark each problem in order to minimize the chances of grading errors.
+For the written problems, please submit your answers in PDF format, using the filename `hw2-written.pdf`. Make sure to clearly mark each problem in order to minimize the chances of grading errors.
 
 You do not need to submit anything for Problems 0, 1c, 3b, or 4.
 
